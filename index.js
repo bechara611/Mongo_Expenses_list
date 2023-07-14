@@ -9,5 +9,6 @@ try {
     servidor.HabilitarServidor()
 } catch (error) {
     console.log(error)
-    console.log('')
+    console.log('1')
+    console.log('2')
 }
