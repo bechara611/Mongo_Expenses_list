@@ -1,4 +1,5 @@
-import { Servidor } from "./Server.js"
+import { Servidor } from "./models/Server.js"
+
 
 
 

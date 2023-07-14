@@ -1,6 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import { RouterInicio } from './routes/Inicio.js';
+import { RouterInicio } from '../routes/Inicio.js';
 dotenv.config();
 
 export class Servidor {
