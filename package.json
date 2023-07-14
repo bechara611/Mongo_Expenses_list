@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "expensesl_back",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bechara611/Mongo_Expenses_list.git"
+  },
+  "keywords": [
+    "expenses_list"
+  ],
+  "author": "DanyBechara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bechara611/Mongo_Expenses_list/issues"
+  },
+  "homepage": "https://github.com/bechara611/Mongo_Expenses_list#readme",
+  "description": ""
+}
