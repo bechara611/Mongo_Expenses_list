@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>140</x>
+      <y>110</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>V-0.1
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>40</x>
+      <y>120</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>MAIN
+
+style=wordwrap
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>370</x>
+      <y>110</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>V-1.0
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>200</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>
+Practicamente sistema en blanco
+para poder tener un inicio
+de proyecto</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>200</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>
+Se hizo la clase server
+se puede iniciar el listen
+carpetas y una sola ruta MVW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>590</x>
+      <y>110</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>V-2.0
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>200</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>
+Creando las verdaderas rutas
+pero sin todos los controladores</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
