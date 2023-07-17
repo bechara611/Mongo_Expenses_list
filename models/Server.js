@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import { RouterInicio } from '../routes/Inicio.js';
+import { RouterUsuarios } from '../routes/Usuario.js';
 dotenv.config();
 
 export class Servidor {
@@ -8,8 +9,8 @@ export class Servidor {
     constructor() {
         this.rutas =
         {
-            inicio: '/*',
-            usuarios: 'usuarios/'
+            inicio:'/',
+            usuarios:'api/usuarios/'
         }
         this.app = express()
         this.Middlewares();
@@ -22,6 +23,7 @@ export class Servidor {
 
     Rutas_metodos(){
         this.app.use(this.rutas.inicio,RouterInicio)
+        this.app.use(this.rutas.usuarios,RouterUsuarios)
     }
     HabilitarServidor(){
         this.app.listen(process.env.PORT,()=>{
