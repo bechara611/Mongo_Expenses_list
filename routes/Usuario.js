@@ -5,4 +5,4 @@ export const RouterUsuarios = Router();
 
 RouterUsuarios.get('/',GetUsuarios)
 RouterUsuarios.post('/',PostUsuarios)
-RouterUsuarios.delete('/',DeleteUsuarios)
+RouterUsuarios.delete('/:id',DeleteUsuarios)

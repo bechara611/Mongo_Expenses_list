@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { RouterInicio } from '../routes/Inicio.js';
 import { RouterUsuarios } from '../routes/Usuario.js';
+import { RouterGastos } from '../routes/Gastos.js';
 dotenv.config();
 
 export class Servidor {
@@ -10,7 +11,8 @@ export class Servidor {
         this.rutas =
         {
             inicio:'/',
-            usuarios:'/api/usuarios/'
+            usuarios:'/api/usuarios/',
+            gastos:'/api/gastos/'
         }
         this.app = express()
         this.Middlewares();
@@ -24,6 +26,7 @@ export class Servidor {
     Rutas_metodos(){
         this.app.use(this.rutas.inicio,RouterInicio)
         this.app.use(this.rutas.usuarios,RouterUsuarios)
+        this.app.use(this.rutas.gastos,RouterGastos)
     }
     HabilitarServidor(){
         this.app.listen(process.env.PORT,()=>{

@@ -17,15 +17,21 @@ export const GetUsuarios=(req=request,res=response)=>{
 }
 
 export const PostUsuarios=(req=request,res=response)=>{
+    const {nombre,correo,clave}=req.body;
     try {
-        res.status(200).json({
+       return  res.status(200).json({
             ok:true,
-            msg:'PostUsuarios'
+            msg:'PostUsuarios',
+            usuario:{
+                nombre,
+                correo,
+                clave
+            }
         })
         
     } catch (error) {
         console.log(error)
-        res.status(400).json({
+      return  res.status(400).json({
             ok:false,
             msg:'INTERNAL ERROR'
         })
@@ -33,15 +39,17 @@ export const PostUsuarios=(req=request,res=response)=>{
 }
 
 export const DeleteUsuarios=(req=request,res=response)=>{
+    const {id}= req.params
     try {
-        res.status(200).json({
+     return   res.status(200).json({
             ok:true,
-            msg:'DeleteUsuarios'
+            msg:'DeleteUsuarios',
+            id
         })
         
     } catch (error) {
         console.log(error)
-        res.status(400).json({
+     return  res.status(400).json({
             ok:false,
             msg:'INTERNAL ERROR'
         })
