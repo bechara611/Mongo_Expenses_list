@@ -10,7 +10,7 @@ export class Servidor {
         this.rutas =
         {
             inicio:'/',
-            usuarios:'api/usuarios/'
+            usuarios:'/api/usuarios/'
         }
         this.app = express()
         this.Middlewares();
