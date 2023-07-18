@@ -171,4 +171,28 @@ Desarrollado directamente
 en develop.</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>140</x>
+      <y>350</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>V-8.0
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>410</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>
+JWT</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>

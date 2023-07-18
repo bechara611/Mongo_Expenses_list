@@ -19,10 +19,12 @@ export const getGastos=(req=request,res=response)=>{
 
 export const PostGastos=(req=request,res=response)=>{
     //TODO DEBES RECIBIR LOS DATOS DE LOS GASTOS
+    const body = req.body
     try {
         return  res.status(200).json({
              ok:true,
              msg:'Post gastos',
+             body
             
          })
          
