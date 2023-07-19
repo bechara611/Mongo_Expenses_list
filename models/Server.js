@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import { RouterInicio } from '../routes/Inicio.js';
 import { RouterUsuarios } from '../routes/Usuario.js';
 import { RouterGastos } from '../routes/Gastos.js';
+import { ConectarBD } from '../helpers/Connection.js';
 dotenv.config();
 
 export class Servidor {
@@ -17,6 +18,7 @@ export class Servidor {
         this.app = express()
         this.Middlewares();
         this.Rutas_metodos();
+        this.conexionBD();
     }
     Middlewares(){
         this.app.use(express.static('public'));
@@ -32,6 +34,9 @@ export class Servidor {
         this.app.listen(process.env.PORT,()=>{
             console.log(`Listen in ${process.env.PORT}`)
         })
+    }
+    conexionBD(){
+        ConectarBD()
     }
 
 }
