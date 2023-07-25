@@ -94,13 +94,22 @@ export const PostLogin = async (req = request, res = response) => {
     }
 }
 
-export const DeleteUsuarios = (req = request, res = response) => {
+export const DeleteUsuarios =async (req = request, res = response) => {
     const { id } = req.params
+    const usuario =await UsuarioModelo.findById(id)
+    if (!usuario) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'USER NOT FOUND'
+        })
+    }
+    const usuariosLuegoDeEliminar = await UsuarioModelo.findByIdAndDelete(id,{new:true})
     try {
         return res.status(200).json({
             ok: true,
-            msg: 'DeleteUsuarios',
-            id
+            msg: 'USER DELETED',
+            id,
+            Eliminado: usuariosLuegoDeEliminar
         })
 
     } catch (error) {
