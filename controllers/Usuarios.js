@@ -1,11 +1,20 @@
 import { request, response } from "express";
 import { CrearToken } from "../helpers/JWT.js";
+import UsuarioModelo from '../models/Usuario.js'
+import { UsuarioExiste } from "../helpers/BD.js";
+export const GetUsuarios = async (req = request, res = response) => {
 
-export const GetUsuarios = (req = request, res = response) => {
+    const usuarios = await UsuarioModelo.find();
+    let usuarios2 = [];
+    usuarios.forEach((element, index) => {
+        usuarios2[index] = { nombre: element.nombre, correo: element.correo, id: element._id }
+    });
+
     try {
         res.status(200).json({
             ok: true,
-            msg: 'Get usuarios'
+            msg: 'Get usuarios',
+            usuarios: usuarios2
         })
 
     } catch (error) {
@@ -20,16 +29,23 @@ export const GetUsuarios = (req = request, res = response) => {
 export const PostUsuarios = async (req = request, res = response) => {
     try {
         const { nombre, correo, clave } = req.body;
-    
+        const existe = await UsuarioExiste(correo)
+        if (existe) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'EMAIL ALREADY EXIST'
+            })
+        }
+        const ModeloUsuario = new UsuarioModelo({
+            nombre: nombre.toUpperCase(),
+            correo: correo.toLowerCase(),
+            password: clave
+        })
+        const usuarioBD = await ModeloUsuario.save();
         return res.status(200).json({
             ok: true,
             msg: 'PostUsuarios',
-            usuario: {
-                nombre,
-                correo,
-                clave,
-                token
-            }
+            usuarioBD
         })
 
     } catch (error) {
@@ -41,19 +57,32 @@ export const PostUsuarios = async (req = request, res = response) => {
     }
 }
 
-export const PostLogin = async(req = request, res = response)=>{
+export const PostLogin = async (req = request, res = response) => {
     try {
-        const {correo, clave } = req.body;
+        const { correo, clave } = req.body;
         //TODO comprobar si existe el usuario y el pass es correcto
-        const token = await CrearToken({ id: 123, correo })
+        const existeCorreo = await UsuarioExiste(correo)
+        if (!existeCorreo) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'EMAIL NOT FOUND'
+            })
+        }
+        const usuarioBD = await UsuarioModelo.findOne({correo:correo,password:clave})
+        if (!usuarioBD) {
+            return res.status(400).json({
+                ok: false,
+                msg: 'INCORRECT PASSWORD'
+            })
+        }
+        
+        const token = await CrearToken({ id:usuarioBD._id, correo })
         return res.status(200).json({
             ok: true,
             msg: 'Login',
-            usuario: {
-                correo,
-                clave,
-                token
-            }
+            usuarioBD,
+            token
+
         })
 
     } catch (error) {
