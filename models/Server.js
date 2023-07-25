@@ -14,7 +14,8 @@ export class Servidor {
             inicio:'/',
             usuarios:'/api/usuarios/',
             gastos:'/api/gastos/',
-            default:'/*'
+            default:'/*',
+            develop2:''
         }
         this.app = express()
         this.Middlewares();
