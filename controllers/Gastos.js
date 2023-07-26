@@ -1,10 +1,13 @@
 import { request } from "express";
+import GastosModelo  from "../models/Gastos.js";
 
-export const getGastos=(req=request,res=response)=>{
+export const getGastos= async(req=request,res=response)=>{
+    const gastosBD = await GastosModelo.find().populate('usuario');
     try {
         return  res.status(200).json({
              ok:true,
              msg:'Get gastos',
+             gastosBD
             
          })
          
@@ -17,14 +20,20 @@ export const getGastos=(req=request,res=response)=>{
      }
 }
 
-export const PostGastos=(req=request,res=response)=>{
+export const PostGastos=async(req=request,res=response)=>{
     //TODO DEBES RECIBIR LOS DATOS DE LOS GASTOS
-    const body = req.body
+
     try {
+        const {nombre,total,categoria,fecha,fechaUnix,usuario} = req.body
+        const GastoRegistrado = new GastosModelo({nombre,total,categoria,fecha,fechaUnix,usuario})
+       const respues = await GastoRegistrado.save();
         return  res.status(200).json({
              ok:true,
              msg:'Post gastos',
-             body
+             body:{
+                nombre,total,categoria,fecha,fechaUnix,usuario
+             },
+             respues
             
          })
          

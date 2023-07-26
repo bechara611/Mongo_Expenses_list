@@ -13,7 +13,9 @@ export class Servidor {
         {
             inicio:'/',
             usuarios:'/api/usuarios/',
-            gastos:'/api/gastos/'
+            gastos:'/api/gastos/',
+            default:'/*',
+            develop2:''
         }
         this.app = express()
         this.Middlewares();
@@ -29,6 +31,7 @@ export class Servidor {
         this.app.use(this.rutas.inicio,RouterInicio)
         this.app.use(this.rutas.usuarios,RouterUsuarios)
         this.app.use(this.rutas.gastos,RouterGastos)
+        this.app.use(this.rutas.default,(req,res)=>{return res.status(400).json({ok:false,msg:'INSERT A VALID URL'})})
     }
     HabilitarServidor(){
         this.app.listen(process.env.PORT,()=>{

@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+
 const GastoModelo = new Schema({
     nombre:{
         type:String,
@@ -20,7 +21,12 @@ const GastoModelo = new Schema({
     fechaUnix:{
         type:String,
         required:[true,'PLEASE INSERT A VALUE FOR fechaUnix']
-    }
+    },
+    usuario:{
+        type: Schema.Types.ObjectId,
+        ref:'Usuarios',
+        required:[true,'PLEASE INSERT A VALID USER']
+    },
 })
 
-export default model('GASTOS',GastoModelo)
+export default model('Gastos',GastoModelo)

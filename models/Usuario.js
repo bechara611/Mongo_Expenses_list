@@ -14,4 +14,9 @@ const UsuarioModelo= new Schema({
         required:[true,'PLEASE INSERT A PASSWORD']
     }
 })
-export default model('USUARIOS',UsuarioModelo);
+
+UsuarioModelo.methods.toJSON= function () {
+    const {__v,...resto}= this.toObject();
+    return resto;
+}
+export default model('Usuarios',UsuarioModelo);

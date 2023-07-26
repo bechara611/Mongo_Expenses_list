@@ -26,12 +26,13 @@ export const MiddlewareToken = (token,next,req=request) => {
     try {
         const payload = JWT.verify(token, process.env.KEY)
         if (payload) {
-            console.log(payload)
+            
             req.usuario = payload
            return true;
         }
     } catch (error) {
-    throw new Error('INVALID TOKEN')
+        return null
+   
     }
 
 }
