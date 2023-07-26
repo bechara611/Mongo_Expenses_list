@@ -19,4 +19,4 @@ UsuarioModelo.methods.toJSON= function () {
     const {__v,...resto}= this.toObject();
     return resto;
 }
-export default model('USUARIOS',UsuarioModelo);
+export default model('Usuarios',UsuarioModelo);
